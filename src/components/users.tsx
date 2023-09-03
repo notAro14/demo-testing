@@ -6,16 +6,16 @@ import usersGateway from "../adapters/UsersGateway.production";
 export default function Users() {
   const { data } = useQuery({
     queryKey: ["users"],
-    queryFn: async function () {
-      return usersGateway.all();
-    },
+    queryFn: usersGateway.all,
   });
+
   if (!data)
     return (
       <Text size="5" role="alert">
         Loading users...
       </Text>
     );
+
   return (
     <Flex direction="column" gap="4">
       <Heading as="h1">{`${data.length} users retrieved`}</Heading>
