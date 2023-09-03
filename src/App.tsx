@@ -1,8 +1,16 @@
 import { Theme } from "@radix-ui/themes";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { setupClient } from "./store/queryClient";
+import Hello from "./components/hello";
+
+const queryClient = setupClient();
+
 export default function App() {
   return (
-    <Theme appearance="dark">
-      <h1>Hello World</h1>
-    </Theme>
+    <QueryClientProvider client={queryClient}>
+      <Theme appearance="dark">
+        <Hello />
+      </Theme>
+    </QueryClientProvider>
   );
 }
