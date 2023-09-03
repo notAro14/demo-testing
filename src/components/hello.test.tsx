@@ -1,5 +1,9 @@
-import { test, expect } from "vitest";
+import { test } from "vitest";
+
+import Hello from "./hello";
+import { render, screen } from "../test/utils";
 
 test("should sum two positive numbers", () => {
-  expect(2 + 2).toEqual(4);
+  render(<Hello />);
+  screen.debug();
 });
