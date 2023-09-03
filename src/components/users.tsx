@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import usersGateway from "../adapters/UsersGateway.production";
 
-export default function Hello() {
+export default function Users() {
   const { data } = useQuery({
     queryKey: ["users"],
     queryFn: async function () {
